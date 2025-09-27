@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Thơ Văn Bản Web</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background: #f9f9f9;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+
+        #btn {
+            padding: 10px 20px;
+            margin: 10px 0;
+        }
+
+        #result {
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 10px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>✨ Làm Thơ Từ Văn Bản ✨</h2>
+    <textarea id="txtInput" placeholder="Nhập văn bản vào đây..."></textarea><br>
+    <button id="btn">Làm Thơ</button>
+
+    <h3>Kết quả:</h3>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("btn").onclick = function () {
+            var text = document.getElementById("txtInput").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "api.aspx", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var res = JSON.parse(xhr.responseText);
+                    document.getElementById("result").innerText = res.poem;
+                }
+            };
+
+            xhr.send("input=" + encodeURIComponent(text));
+        };
+    </script>
+</body>
+</html>
