@@ -46,3 +46,46 @@ Client JS: gửi dữ liệu qua AJAX (ví dụ XMLHttpRequest hoặc fetch) t�
 Server: api.aspx + api.aspx.cs (code-behind) — trong code-behind gọi DLL để xử lý dữ liệu và trả JSON cho client.
 
 Web project build ra DLL (ASP.NET assemblies) và phải chạy qua IIS (cài site, bind host name bằng file hosts).
+
+Bài toán: 
+
+<img width="655" height="695" alt="image" src="https://github.com/user-attachments/assets/c591fc92-6c8f-4ffa-9ddb-4eab4995377c" />   
+
+Các bước thực hiện
+
+Bước 1: Tạo Solution
+
+Mở Visual Studio 2022.
+
+Chọn File → New → Project.
+
+Tìm template Blank Solution (hoặc gõ từ khóa "Blank Solution" trong ô tìm kiếm).  
+
+Đặt tên Solution : Lamtho → Create.  
+
+<img width="1919" height="1005" alt="image" src="https://github.com/user-attachments/assets/44964471-d2a2-4bae-a850-fd20d903735b" />   
+
+Bước 2: Tạo Project - Class Library (DLL) — ThoLibrary  
+
+Trong Solution Explorer, click phải vào Solution : Pikachu → Add → New Project.
+
+Gõ tìm: Class Library (.NET Framework).  
+
+Chọn → Next.   
+
+Đặt tên project: Pikachu.  
+
+Ở phần Framework → chọn .NET Framework 2.0 → Create.  
+
+Trong Solution Explorer, click phải vào Solution : Pikachu → Add → New Project.
+
+Gõ tìm: Class Library (.NET Framework).
+
+Chọn → Next.
+
+Đặt tên project: Tho
+
+Ở phần Framework → chọn .NET Framework 2.0 → Create.
+
+
+
