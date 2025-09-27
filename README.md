@@ -1,9 +1,15 @@
 # K58KTP_Baitap1  
 Nguyễn Thị Kim Huệ  - K225480106026
+
 K58KTP - Môn: Phát triển ứng dụng trên nền web
+
 BÀI TẬP VỀ NHÀ 01:
+
 TẠO SOLUTION GỒM CÁC PROJECT SAU:
-DLL đa năng, keyword: c# window library -> Class Library (.NET Framework) bắt buộc sử dụng .NET Framework 2.0: giải bài toán bất kỳ, độc lạ càng tốt, phải có dấu ấn cá nhân trong kết quả, biên dịch ra DLL. DLL độc lập vì nó ko nhập, ko xuất, nó nhận input truyền vào thuộc tính của nó, và trả về dữ liệu thông qua thuộc tính khác, hoặc thông qua giá trị trả về của hàm. Nó độc lập thì sẽ sử dụng được trên app dạng console (giao diện dòng lệnh - đen sì), cũng sử dụng được trên app desktop (dạng cửa sổ), và cũng sử dụng được trên web form (web chạy qua iis).
+
+DLL đa năng, keyword: c# window library -> Class Library (.NET Framework) bắt buộc sử dụng .NET Framework 2.0: giải bài toán bất kỳ, độc lạ càng tốt, phải có dấu ấn cá nhân trong kết quả, biên dịch ra DLL.
+
+DLL độc lập vì nó ko nhập, ko xuất, nó nhận input truyền vào thuộc tính của nó, và trả về dữ liệu thông qua thuộc tính khác, hoặc thông qua giá trị trả về của hàm. Nó độc lập thì sẽ sử dụng được trên app dạng console (giao diện dòng lệnh - đen sì), cũng sử dụng được trên app desktop (dạng cửa sổ), và cũng sử dụng được trên web form (web chạy qua iis).
 
 Console app, bắt buộc sử dụng .NET Framework 2.0, sử dụng được DLL trên: nhập được input, gọi DLL, hiển thị kết quả, phải có dấu án cá nhân. keyword: c# window Console => Console App (.NET Framework), biên dịch ra EXE
 
@@ -12,17 +18,31 @@ Windows Form Application, bắt buộc sử dụng .NET Framework 2.0**, sử d�
 Web đơn giản, bắt buộc sử dụng .NET Framework 2.0, sử dụng web server là IIS, dùng file hosts để tự tạo domain, gắn domain này vào iis, file index.html có sử dụng html css js để xây dựng giao diện nhập được các input cho bài toán, dùng mã js để tiền xử lý dữ liệu, js để gửi lên backend. backend là api.aspx, trong code của api.aspx.cs thì lấy được các input mà js gửi lên, rồi sử dụng được DLL đa năng trên. kết quả gửi lại json cho client, js phía client sẽ nhận được json này hậu xử lý để thay đổi giao diện theo dữ liệu nhận dược, phải có dấu án cá nhân. keyword: c# window web => ASP.NET Web Application (.NET Framework) + tham khảo link chatgpt thầy gửi. project web này biên dịch ra DLL, phải kết hợp với IIS mới chạy được.
 
 Projects cần tạo
+
 1. Class Library (.NET Framework 2.0) — tạo DLL đa năng (ví dụ YourNameLib.dll):
+   
 Quan trọng: DLL độc lập — không đọc/ghi file, không sử dụng UI, không dùng console trực tiếp.
+
 Nhận dữ liệu bằng thuộc tính public (ví dụ Input), trả kết quả bằng thuộc tính khác hoặc giá trị trả về của hàm (ví dụ Result, Execute() trả bool).
+
 Biên dịch ra *.dll.
-2. Console App (.NET Framework 2.0):
+
+3. Console App (.NET Framework 2.0):
+
 Gọi DLL: truyền input vào DLL qua thuộc tính/ hàm, lấy kết quả và in ra console.
+
 Biên dịch ra EXE.
-3. Windows Form Application (.NET Framework 2.0):
+
+5. Windows Form Application (.NET Framework 2.0):
+   
 Giao diện lấy input (textbox, button), gọi DLL, show kết quả trong form (multiline textbox, label...).
-4. Web App — ASP.NET Web Application (.NET Framework 2.0):
+
+7. Web App — ASP.NET Web Application (.NET Framework 2.0):
+   
 Client: index.html (HTML + CSS + JS) dùng để nhập input, tiền xử lý (nếu cần) bằng JS.
+
 Client JS: gửi dữ liệu qua AJAX (ví dụ XMLHttpRequest hoặc fetch) tới api.aspx.
+
 Server: api.aspx + api.aspx.cs (code-behind) — trong code-behind gọi DLL để xử lý dữ liệu và trả JSON cho client.
+
 Web project build ra DLL (ASP.NET assemblies) và phải chạy qua IIS (cài site, bind host name bằng file hosts).
