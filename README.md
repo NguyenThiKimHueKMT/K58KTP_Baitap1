@@ -73,19 +73,120 @@ Gõ tìm: Class Library (.NET Framework).
 
 Chọn → Next.   
 
-Đặt tên project: Pikachu.  
+Đặt tên project: ThoLibrary  
 
-Ở phần Framework → chọn .NET Framework 2.0 → Create.  
+Ở phần Framework → chọn .NET Framework 2.0 → Create.
+<img width="1899" height="998" alt="image" src="https://github.com/user-attachments/assets/144b0d30-2ee3-4851-b708-a96397a5fba5" />  
 
-Trong Solution Explorer, click phải vào Solution : Pikachu → Add → New Project.
+DLL này sẽ được dùng lại trong Console App, WinForm, và Web.
 
-Gõ tìm: Class Library (.NET Framework).
+DLL không có Main(), chỉ có class + method để người khác gọi.
+
+Build & Run
+
+Chuột phải vào ThoLibrary
+
+Build: Build → Build Solution
+
+DLL không chạy trực tiếp. Nó chỉ được tham chiếu (reference) bởi các project khác.  
+Bước 3: Tạo Project - Console App (.NET Framework 2.0)
+
+Trong Solution Explorer chuột phải vào Solution Lamtho → Add → New Project
+
+Gõ tìm: Console App (.NET Framework) → Chọn .NET Framework 2.0.
+
+Đặt tên: ThoConsole → Create.
+<img width="1915" height="1007" alt="image" src="https://github.com/user-attachments/assets/79b9e75d-00ff-40d7-9470-d7011b1bab66" />  
+
+Bước 4: Tạo Project – Windows Form Application (.NET Framework 2.0)
+Trong Solution Explorer chuột phải vào Solution Lamtho → Add → New Project
+
+Gõ tìm: Windows Forms App (.NET Framework).
 
 Chọn → Next.
 
-Đặt tên project: Tho
+Đặt tên project: ThoWinform.
 
 Ở phần Framework → chọn .NET Framework 2.0 → Create.
+<img width="1908" height="1000" alt="image" src="https://github.com/user-attachments/assets/3f586a73-19d9-4af9-b535-fa3ca5dcd6e1" /> 
+
+Sau khi tạo xong → References → Add Reference → Projects → LamTho (DLL).  
+<img width="976" height="667" alt="image" src="https://github.com/user-attachments/assets/7870b7a6-7306-4e0d-b10d-1d39d64cb93a" />   
+
+Bước 5: Tạo Project – ASP.NET Web Application (.NET Framework 2.0)
+
+Mục đích: Người dùng tương tác với giao diện HTML/CSS/JS để chọn ô, JavaScript gửi yêu cầu đến backend (api.aspx), backend gọi DLL ThoLibrary để xử lý logic, và trả về JSON. JavaScript xử lý JSON để cập nhật giao diện (vẽ bảng, xóa ô). 
+
+Trong Solution Explorer chuột phải vào Solution Lamtho → Add → New Project
+
+Tìm: ASP.NET Web Application (.NET Framework).
+
+Đặt tên project: ThoWebApp.
+
+Ở phần framework chọn: .NET Framework 2.0 → Create.
+
+<img width="1907" height="929" alt="image" src="https://github.com/user-attachments/assets/24331608-a28e-42b3-be76-08d6eb05d398" />  
+
+<img width="1913" height="1005" alt="image" src="https://github.com/user-attachments/assets/cd6a925e-ac2d-4b42-a3c8-2554ee8752fc" />
+
+Sau khi tạo xong tham chiếu đến DLL → References → Add Reference → Projects → Lamtho (DLL).  
+<img width="981" height="671" alt="image" src="https://github.com/user-attachments/assets/2eabbfcd-88ee-493c-bcd2-a4fa6b0309e9" /> 
+
+Build & Run  
+
+Bước 6: Cấu hình IIS cho Project Web
+
+1. Bật IIS trên Windows
+   
+Mở Control Panel → Programs and Features.
+
+Ở sidebar → chọn Turn Windows features on or off (Bật/tắt tính năng Windows).
+
+Nhấn chọn:
+
+Internet Information Services
+
+Trong đó bật Web Management Tools và World Wide Web Services.
+
+Quan trọng: Trong Application Development Features, bật:
+
+ASP.NET 4.8 (hoặc ASP.NET 3.5 nếu cài sẵn .NET 2.0)
+
+ISAPI Extensions
+
+ISAPI Filters
+
+Nhấn OK, đợi Windows cài đặt IIS.
+
+2. Tạo Website trong IIS
+   
+Mở IIS Manager: Trong cây bên trái, chuột phải Sites → Add Website…. Nhập:
+
+Site name: ThoWebApp
+
+Physical path: chọn folder chứa project web (chính là thư mục ThoWebApp của solution).  
+
+Binding:
+
+Type: http
+
+IP address: All Unassigned
+
+Port: 80.
+
+Host name: Tho.local Nhấn OK.
+
+Kết quả 
+<img width="655" height="695" alt="Ảnh chụp màn hình 2025-09-28 024559" src="https://github.com/user-attachments/assets/749dcaf5-d2de-4299-8c96-5182dee6c600" />
+
+
+
+
+
+
+
+
+
 
 
 
