@@ -49,7 +49,7 @@ Web project build ra DLL (ASP.NET assemblies) và phải chạy qua IIS (cài si
 
 Bài toán: 
 
-<img width="655" height="695" alt="image" src="https://github.com/user-attachments/assets/c591fc92-6c8f-4ffa-9ddb-4eab4995377c" />   
+<img width="1901" height="1010" alt="image" src="https://github.com/user-attachments/assets/d7043ee0-ad0b-4cc3-849d-2146c40856f8" />
 
 Các bước thực hiện
 
