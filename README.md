@@ -177,7 +177,8 @@ Port: 80.
 Host name: Tho.local Nhấn OK.
 
 Kết quả 
-<img width="655" height="695" alt="Ảnh chụp màn hình 2025-09-28 024559" src="https://github.com/user-attachments/assets/749dcaf5-d2de-4299-8c96-5182dee6c600" />
+
+<img width="1900" height="1004" alt="image" src="https://github.com/user-attachments/assets/0fa40fdd-46fd-4bb7-abb2-5e085545c38c" />
 
 
 
